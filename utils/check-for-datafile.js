@@ -1,7 +1,7 @@
 import { get } from '@vercel/edge-config';
 
 export async function checkForDatafile() {
-    const datafile = await get('optimizely');
-    if (!datafile) return false;
+    const optimizelyDatafile = await get('optimizely');
+    if (!optimizelyDatafile) return false;
     return true;
   }

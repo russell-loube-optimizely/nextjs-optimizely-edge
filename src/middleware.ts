@@ -7,7 +7,7 @@ import { fetchDatafile } from '../utils/fetch-optimizely-datafile';
 import { updateEdgeConfig } from '../utils/update-edge-config';
 import { checkForDatafile } from '../utils/check-for-datafile'
  
-export const config = { matcher: '/welcome' };
+export const config = { matcher: '/' };
 
 const COOKIE_NAME = 'optimizely_visitor_id'
  
@@ -18,9 +18,11 @@ export async function middleware(req: NextRequest, res: NextResponse, event: Nex
 
   // Make a check for the datafile in edge config. If no datafile exists, create the key-value pair for the edge config.
 
-  if (checkForDatafile) {
+  const datafileExists = await checkForDatafile();
+
+  if (!datafileExists) {
     const datafile = await fetchDatafile();
-    updateEdgeConfig(datafile, 'upsert');
+    updateEdgeConfig(datafile);
   }
 
   // Get the datafile from the edge config

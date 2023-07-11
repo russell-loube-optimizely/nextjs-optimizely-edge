@@ -1,12 +1,13 @@
 export const config = {runtime: 'edge'}
 
-export async function updateEdgeConfig(datafile, op) {
+export async function updateEdgeConfig(datafile) {
   const edgeConfigID = process.env.EDGE_CONFIG_ID;
   const vercelAPIToken = process.env.VERCEL_API_TOKEN;
+  const teamID = process.env.VERCEL_TEAM_ID;
 
   try {
     const response = await fetch(
-      `https://api.vercel.com/v1/edge-config/${edgeConfigID}/items`,
+      `https://api.vercel.com/v1/edge-config/${edgeConfigID}/items?teamId=${teamID}`,
       {
         method: 'PATCH',
         headers: {
@@ -16,7 +17,7 @@ export async function updateEdgeConfig(datafile, op) {
         body: JSON.stringify({
           items: [
             {
-              operation: op,
+              operation: 'upsert',
               key: 'optimizely',
               value: datafile
             },
