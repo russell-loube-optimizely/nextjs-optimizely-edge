@@ -1,6 +1,6 @@
 export const config = {runtime: 'edge'}
 
-export async function fetchDatafile() {
+export async function fetchDatafileFromCDN() {
   const sdkKey = process.env.OPTIMIZELY_SDK_KEY;
 
   console.log(`Fetching Optimizely Datafile for SDK Key: ${sdkKey}`);

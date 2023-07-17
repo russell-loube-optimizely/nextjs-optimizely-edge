@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 
-import { fetchDatafile } from "../../../../utils/fetch-optimizely-datafile";
+import { fetchDatafileFromCDN } from "../../../../utils/fetch-optimizely-datafile";
 import { updateEdgeConfig } from "../../../../utils/update-edge-config";
 import { initializeOptimizely } from "../../../../utils/inititialize-optimizely";
 
@@ -11,17 +11,20 @@ export async function GET(req: NextRequest) {
     the datafile and re-instantiate the Optimizely SDK
     for the changes to take effect
     `);
-
-    const response = new Response('Webhook Received, Updated Optimizely With New Data')
-
+    
     // Make request to Optimizely CDN for fresh datafile
-    const datafile = await fetchDatafile();
+    const datafile = await fetchDatafileFromCDN();
 
-    // Update Vercel Edge Config wth datafile
+    // Re-initialize Optimizely with fresh datafile. 
+    // You may want to store this instance somewhere where it can be used by your app elsewhere (i.e. a context store)
+    
+    const instance = initializeOptimizely(datafile);
+
+    // Update Vercel Edge Config wth fresh datafile
+
     await updateEdgeConfig(datafile);
-
-    // Initialize Optimizely with value from Vercel Edge Config
-    await initializeOptimizely();
-
+    
+    const response = new Response('Webhook Received, Updated Optimizely and Edge Config With New Data')
+    
     return response;
 }

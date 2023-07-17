@@ -26,7 +26,7 @@ export async function updateEdgeConfig(datafile) {
       },
     );
     const result = await response.json();
-    console.log(result);
+    console.log(`Status of updating edge config: ${JSON.stringify(result.status)}`);
   } catch (error) {
     console.log(error);
   }
