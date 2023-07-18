@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
     // Update Vercel Edge Config wth fresh datafile
 
-    await updateEdgeConfig(datafile);
+    updateEdgeConfig(datafile);
     
     const response = new Response('Webhook Received, Updated Optimizely and Edge Config With New Data')
     
