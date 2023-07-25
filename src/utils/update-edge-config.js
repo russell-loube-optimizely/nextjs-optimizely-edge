@@ -1,6 +1,6 @@
 export const config = {runtime: 'edge'}
 
-export async function updateEdgeConfig(datafile) {
+export async function updateEdgeConfig(datafile, timeStamp) {
   const edgeConfigID = process.env.EDGE_CONFIG_ID;
   const vercelAPIToken = process.env.VERCEL_API_TOKEN;
   const teamID = process.env.VERCEL_TEAM_ID;
@@ -20,6 +20,11 @@ export async function updateEdgeConfig(datafile) {
               operation: 'upsert',
               key: 'optimizely',
               value: datafile
+            },
+            {
+              operation: 'upsert',
+              key: 'last_updated',
+              value: timeStamp
             },
           ],
         }),

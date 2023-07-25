@@ -10,12 +10,14 @@ export const config = { matcher: '/' };
 const COOKIE_NAME = 'optimizely_visitor_id'
  
 export async function middleware(req: NextRequest, res: NextResponse) {
-
+  
   // Fetch user Id from the cookie if available so a returning user from same browser session always sees the same variation.
-
+  
   const userId = req.cookies.get(COOKIE_NAME)?.value || crypto.randomUUID()
-
+  
   const checkAndFetchForDatafile = async () => {
+    const timeStamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+    
     // Make a check for the datafile in edge config.
     // If no datafile exists, fetch the datafile from CDN
 
@@ -25,7 +27,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
       const datafileFromOptimizelyCDN = await fetchDatafileFromCDN();
 
       // Update Datafile at Edge
-      updateEdgeConfig(datafileFromOptimizelyCDN);
+      updateEdgeConfig(datafileFromOptimizelyCDN, timeStamp);
 
       return datafileFromOptimizelyCDN;
     }
