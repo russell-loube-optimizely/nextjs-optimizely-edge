@@ -23,7 +23,7 @@ export async function updateEdgeConfig(datafile, timeStamp) {
             },
             {
               operation: 'upsert',
-              key: 'last_updated',
+              key: 'optimizely_last_updated',
               value: timeStamp
             },
           ],

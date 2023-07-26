@@ -17,7 +17,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
   
   const checkAndFetchForDatafile = async () => {
     const timeStamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
-    
+
     // Make a check for the datafile in edge config.
     // If no datafile exists, fetch the datafile from CDN
 

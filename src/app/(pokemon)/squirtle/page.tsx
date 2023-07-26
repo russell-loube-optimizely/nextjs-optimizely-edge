@@ -7,6 +7,7 @@ const page = () => {
       <Image 
       src={squirtle}
       alt='a picture of Squirtle'
+      priority
       />
     </div>
   )
