@@ -20,8 +20,7 @@ export async function GET(req: NextRequest, event: NextFetchEvent) {
     // You may want to store this instance somewhere where it can be used by your app at a root level
 
     // Update Vercel Edge Config wth fresh datafile
-    console.log(datafile.featureFlags);
-    updateEdgeConfig(datafile, timeStamp);
+    await updateEdgeConfig(datafile, timeStamp);
     
     const response = new Response('Webhook Received, Updated Optimizely and Edge Config With New Data')
     
