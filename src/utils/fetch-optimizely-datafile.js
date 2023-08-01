@@ -1,4 +1,4 @@
-export const config = {runtime: 'edge'}
+export const runtime = 'edge';
 
 export async function fetchDatafileFromCDN() {
   const sdkKey = process.env.OPTIMIZELY_SDK_KEY;
