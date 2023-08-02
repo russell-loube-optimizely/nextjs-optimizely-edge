@@ -1,3 +1,5 @@
+
+
 import { NextFetchEvent, NextRequest } from "next/server";
 
 import { fetchDatafileFromCDN } from "../../../../utils/fetch-optimizely-datafile";
@@ -13,14 +15,14 @@ export async function GET(req: NextRequest, event: NextFetchEvent) {
     `);
     
     // Make request to Optimizely CDN for fresh datafile
-    const datafile = await fetchDatafileFromCDN();
+    // const datafile = await fetchDatafileFromCDN();
 
     // Re-initialize Optimizely with fresh datafile. Example code below:
     // const instance = initializeOptimizely(datafile);
     // You may want to store this instance somewhere where it can be used by your app at a root level
 
     // Update Vercel Edge Config wth fresh datafile
-    await updateEdgeConfig(datafile, timeStamp);
+    await updateEdgeConfig({hello: 'world'}, timeStamp);
     
     const response = new Response('Webhook Received, Updated Optimizely and Edge Config With New Data')
     
