@@ -43,7 +43,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Create Optimizely User Context
 
-  const user = instance.createUserContext(userId.toString())
+  const user = instance.createUserContext(userId.toString());
 
   // Decide variation for the flag.
 
@@ -52,7 +52,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Re-route user to the page that reflects the flag decision
 
-  const response = NextResponse.rewrite(new URL(`/${pokemon}`, req.url))
+  const response = NextResponse.rewrite(new URL(`/${pokemon}`, req.url));
 
   if (!req.cookies.has(COOKIE_NAME)){
     response.cookies.set(COOKIE_NAME, userId);
