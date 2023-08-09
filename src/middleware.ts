@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest, NextFetchEvent } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
 import { fetchDatafileFromCDN } from './utils/fetch-optimizely-datafile';
 import { updateEdgeConfig } from './utils/update-edge-config';
@@ -43,7 +43,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Create Optimizely User Context
 
-  const user = instance.createUserContext(userId.toString());
+  const user = instance.createUserContext(userId.toString(), { stateCode: 'California'});
 
   // Decide variation for the flag.
 

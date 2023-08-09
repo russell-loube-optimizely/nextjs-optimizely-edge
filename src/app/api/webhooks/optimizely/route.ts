@@ -9,7 +9,7 @@ import { initializeOptimizely } from "../../../../utils/inititialize-optimizely"
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest, event: NextFetchEvent) {
+export async function POST(req: NextRequest, event: NextFetchEvent) {
     const timeStamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
 
     console.log(`
