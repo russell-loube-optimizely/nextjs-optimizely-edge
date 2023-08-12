@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import squirtle from '../../../../public/pokemon/Squirtle.webp'
+import classes from './pokemon.module.css';
 
 const page = () => {
   return (
@@ -9,7 +10,9 @@ const page = () => {
       alt='a picture of Squirtle'
       priority
       />
+      <p>You Caught a Squirtle!</p>
     </div>
+    
   )
 }
 

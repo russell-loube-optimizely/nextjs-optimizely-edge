@@ -1,5 +1,10 @@
 import './globals.css'
+import classes from './layout.module.css'
 import { Inter } from 'next/font/google'
+import AboutOptimizelyPt1 from '../components/about-this-demo-pt1'
+import AboutOptimizelyPt2 from '../components/about-this-demo-pt2'
+import ReRoll from '../components/re-roll-button'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +16,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className={classes.container}>
+            <AboutOptimizelyPt1 />
+            <div className={classes.pokemon__container}>
+            <ReRoll/>
+            {children}
+            </div>
+            <AboutOptimizelyPt2 />
+        </div>
+    </body>
     </html>
   )
 }

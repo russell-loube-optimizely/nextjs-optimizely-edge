@@ -48,7 +48,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
   // Decide variation for the flag.
 
   const pokemonDecision = user.decide('pokemon');
-  const pokemon = pokemonDecision.variables['pokemon_name'];
+  const pokemon: any = pokemonDecision.variables['pokemon_name'];
 
   // Re-route user to the page that reflects the flag decision
 
@@ -56,6 +56,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   if (!req.cookies.has(COOKIE_NAME)){
     response.cookies.set(COOKIE_NAME, userId);
+    response.cookies.set('pokemon', pokemon);
   }
 
   return response; 

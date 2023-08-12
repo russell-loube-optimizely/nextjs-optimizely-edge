@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import charmander from '../../../../public/pokemon/Charmander.webp'
+import classes from './pokemon.module.css';
 
 const page = () => {
   return (
@@ -9,6 +10,7 @@ const page = () => {
       alt='a picture of Charmander'
       priority
       />
+      <p>You Caught a Charmander!</p>
     </div>
   )
 }

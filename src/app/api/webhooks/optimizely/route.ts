@@ -1,5 +1,3 @@
-
-
 import { NextFetchEvent, NextRequest } from "next/server";
 
 import { fetchDatafileFromCDN } from "../../../../utils/fetch-optimizely-datafile";

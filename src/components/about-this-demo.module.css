@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    text-align: left;
+    padding: 2rem;
+    width: 100%;
+}
+
+.container h1 {
+    padding-bottom: 1rem;
+}
+
+.container p {
+    padding-bottom: 1rem;
+}
+
+.container__text {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .container__text {
+        width: 75%;
+    }
+}
+
+@media (min-width: 768px) {
+   
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+}

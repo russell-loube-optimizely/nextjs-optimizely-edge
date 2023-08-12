@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/about-this-demo-pt1.js", "src/app/(pokemon)/squirtle/page.tsx", "src/app/(pokemon)/charmander/page.tsx", "src/app/(pokemon)/bulbasaur/page.tsx", "src/middleware.js"  ],
   "exclude": [
     "node_modules"
   ]
