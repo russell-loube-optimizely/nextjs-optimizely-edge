@@ -3,12 +3,18 @@
     /* flex-direction: column; */
     justify-content: center;
     text-align: left;
-    padding: 2rem;
+    padding-bottom: 2rem;
     width: 100%;
 }
 
 .container h1 {
     padding-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.container h2 {
+    padding-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .container p {
@@ -20,6 +26,14 @@
 }
 
 @media (min-width: 576px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+    
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
     .container__text {
         width: 75%;
     }

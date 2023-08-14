@@ -20,8 +20,8 @@ export default function RootLayout({ children }) {
         <div className={classes.container}>
             <AboutOptimizelyPt1 />
             <div className={classes.pokemon__container}>
-            <ReRoll/>
             {children}
+            <ReRoll/>
             </div>
             <AboutOptimizelyPt2 />
         </div>

@@ -11,8 +11,11 @@ const AboutOptimizelyPt1 = () => {
     <div className={classes.container}>
       <div className={classes.container__text}>
         <h1>
-          Optimizely + Vercel - Feature Flagging At The Edge
+          Optimizely + Vercel
         </h1>
+        <h2>
+          Feature Flagging at the Edge
+        </h2>
         <p>
           {`This demo shows how to use Optimizely's JavaScript SDK to run experiments on a Vercel-hosted Next.js app.
           This instance takes advantage of Vercel's Edge Network to run feature flagging at the edge.`} 
@@ -24,7 +27,7 @@ const AboutOptimizelyPt1 = () => {
         </p>
         <p>
           {`In this example, decisioning is executed in middleware to re-write the value of the URL. 
-          Based on the decision, you're seeing the pokemon below.`}
+          Based on the decision, you're seeing a specific pokemon below.`}
         </p>
       </div>
     </div>

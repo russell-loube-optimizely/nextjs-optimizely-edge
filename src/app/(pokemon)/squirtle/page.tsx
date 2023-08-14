@@ -8,9 +8,12 @@ const page = () => {
       <Image 
       src={squirtle}
       alt='a picture of Squirtle'
+      width={200}
+      height={200}
       priority
       />
-      <p>You Caught a Squirtle!</p>
+      <p>You Caught a Squirtle! </p>
+      <p>Last updated: {new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}</p>
     </div>
     
   )
