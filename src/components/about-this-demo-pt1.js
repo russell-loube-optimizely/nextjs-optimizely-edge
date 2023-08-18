@@ -21,7 +21,7 @@ const AboutOptimizelyPt1 = () => {
           This instance takes advantage of Vercel's Edge Network to run feature flagging at the edge.`} 
         </p>
         <p>
-        <Link href='https://vercel.com/docs/storage/edge-config' style={{color: 'lightblue'}}> 
+        <Link href='https://vercel.com/docs/storage/edge-config' style={{color: '#4881b3'}}> 
           {`Learn more about Vercel's edge config here.`}
         </Link>
         </p>

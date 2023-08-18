@@ -13,7 +13,7 @@ const AboutOptimizelyPt2 = () => {
       </div>
       <div className={classes.diagram__container}>  
         <Image 
-          src='/diagram-architecture.png' 
+          src='/diagram-optimizely-vercel.png' 
           fill
           sizes="100vw, (max-width: 500px) 60vw"
           objectFit="contain"
