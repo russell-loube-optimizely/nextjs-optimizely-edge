@@ -43,7 +43,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Create Optimizely User Context
 
-  const user = instance.createUserContext(userId.toString(), { stateCode: 'California'});
+  const user = instance.createUserContext(userId.toString());
 
   // Decide variation for the flag.
 

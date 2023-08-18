@@ -1,7 +1,8 @@
 .container {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: left;
     padding-bottom: 2rem;
     width: 100%;
@@ -25,6 +26,12 @@
     width: 100%;
 }
 
+.diagram__container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+}
+
 @media (min-width: 576px) {
     .container h1 {
         font-size: 2rem;
@@ -35,20 +42,29 @@
     }
 
     .container__text {
-        width: 75%;
+        width: 60%;
+    }
+
+    .diagram__container {
+        width: 60%;
+        height: 100vh;
     }
 }
 
 @media (min-width: 768px) {
-   
+    .diagram__container {
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-    
+    .diagram__container {
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+    .diagram__container{
+    }
     
 }

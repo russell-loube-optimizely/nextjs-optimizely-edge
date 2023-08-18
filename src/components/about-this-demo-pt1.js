@@ -27,7 +27,7 @@ const AboutOptimizelyPt1 = () => {
         </p>
         <p>
           {`In this example, decisioning is executed in middleware to re-write the value of the URL. 
-          Based on the decision, you're seeing a specific pokemon below.`}
+          Based on the decision, you'll see either a Bulbasaur, Squirtle, or Charmander below.`}
         </p>
       </div>
     </div>

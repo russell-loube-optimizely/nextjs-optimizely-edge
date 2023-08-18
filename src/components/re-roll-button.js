@@ -11,7 +11,8 @@ const ReRollButton = () => {
   const reRoll = async () => {
     setRolling(true);
     setButtonText('Loading...');
-    await fetch('/api/delete-opti-cookies');
+    document.cookie = "optimizely_visitor_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "pokemon=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.reload();
     setRolling(false);
     setButtonText('Re-Roll for another pokemon!');
