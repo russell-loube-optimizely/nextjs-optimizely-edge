@@ -8,7 +8,8 @@ const AboutOptimizelyPt2 = () => {
       <div className={classes.container__text}>
         <p>  
           {`After an initial fetch for the project datafile from Optimizely's CDN, we store the datafile at the edge with Vercel's edge config. 
-          With the datafile stored at the edge, the datafile can be read in a matter of milliseconds (or less!) when instantiating Optimizely in the future.`}
+          With the datafile stored at the edge, the datafile can be read in a matter of milliseconds (or less!) when instantiating Optimizely in the future.
+          Below is a diagram of how this works.`}
         </p>
       </div>
       <div className={classes.diagram__container}>  

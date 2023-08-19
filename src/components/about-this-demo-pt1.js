@@ -21,13 +21,13 @@ const AboutOptimizelyPt1 = () => {
           This instance takes advantage of Vercel's Edge Network to run feature flagging at the edge.`} 
         </p>
         <p>
-        <Link href='https://vercel.com/docs/storage/edge-config' style={{color: '#4881b3'}}> 
+        <Link href='https://vercel.com/docs/storage/edge-config' style={{color: '#3291ff'}}> 
           {`Learn more about Vercel's edge config here.`}
         </Link>
         </p>
         <p>
           {`In this example, decisioning is executed in middleware to re-write the value of the URL. 
-          Based on the decision, you'll see either a Bulbasaur, Squirtle, or Charmander below.`}
+          Based on the decision, you'll see either a Bulbasaur, a Squirtle, or a Charmander below.`}
         </p>
       </div>
     </div>
