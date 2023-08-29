@@ -8,7 +8,11 @@ const ReRollButton = () => {
   const [rolling, setRolling] = useState(false);
   const [buttonText, setButtonText] = useState('Re-Roll for another pokemon!');
 
-  const reRoll = async () => {
+  // This function is called when the user clicks the button. 
+  // It clears the cookies and reloads the page.
+  // This is a hacky way to re-roll the user's pokemon :)
+
+  const reRoll = () => {
     setRolling(true);
     setButtonText('Loading...');
     document.cookie = "optimizely_visitor_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

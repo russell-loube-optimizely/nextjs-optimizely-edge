@@ -16,7 +16,7 @@ const AboutOptimizelyPt2 = () => {
         <Image 
           src='/diagram-optimizely-vercel.png' 
           fill
-          sizes="100vw, (max-width: 500px) 60vw"
+          sizes="100vw, (max-width: 500px) 20vw"
           objectFit="contain"
           alt='A diagram of how Optimizely leverages Vercel for Feature Flagging at the Edge' 
         />

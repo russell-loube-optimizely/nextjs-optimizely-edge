@@ -20,7 +20,7 @@ export async function POST(req: NextRequest, event: NextFetchEvent) {
 
     // Re-initialize Optimizely with fresh datafile. Example code below:
     // const instance = initializeOptimizely(datafile);
-    // You may want to store this instance somewhere where it can be used by your app at a root level
+    // You may want to store this instance somewhere where it can be used by your app for future decisions.
 
     // Update Vercel Edge Config wth fresh datafile
     await updateEdgeConfig(datafile, timeStamp);
