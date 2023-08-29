@@ -1,5 +1,26 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## About This Project
+
+You can visit a demo of the site here: https://nextjs-optimizely-edge-self.vercel.app/
+
+This is a demo showcasing how Optimizely Feature Experimentation can be used with an application deployed on Vercel. We're using the Optimizely Node SDK in the middleware.ts file to make decisions at the edge. Please visit the demo site to learn more about how decisions are being made. 
+
+## Requirements
+
+For this site to work, you'll need an Optimizely account with an SDK key. 
+
+You can create a free account here: https://www.optimizely.com/free-feature-flagging/
+
+You'll also need an account with Vercel. This project uses Vercel Edge Config as well as the Vercel REST API. For read operations (reading datafile from edge Config), we're using the Vercel SDK. For write operations (writing to edge config), we'll be using the Vercel REST API. 
+
+Vercel Edge Config SDK: https://vercel.com/docs/storage/edge-config/edge-config-sdk
+
+Vercel REST API: https://vercel.com/docs/storage/edge-config/vercel-api
+
+You have the option to set up a webhook with Optimizely to update the edge config whenever you update your project. 
+Learn more here: https://docs.developers.optimizely.com/full-stack-experimentation/docs/configure-webhooks
+
 ## Getting Started
 
 First, run the development server:
@@ -13,12 +34,6 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
