@@ -10,9 +10,8 @@ export const config = { matcher: '/' };
 const COOKIE_NAME = 'optimizely_visitor_id'
  
 export async function middleware(req: NextRequest, res: NextResponse) {
-  
+
   // Fetch user Id from the cookie if available so a returning user from same browser session always sees the same variation.
-  
   const userId = req.cookies.get(COOKIE_NAME)?.value || crypto.randomUUID()
   
   const checkAndFetchForDatafile = async () => {
@@ -43,11 +42,12 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Create Optimizely User Context
 
-  const user = instance.createUserContext(userId.toString());
+  const user = instance.createUserContext(userId.toString() );
 
   // Decide variation for the flag.
 
   const pokemonDecision = user.decide('pokemon');
+
   const pokemon: any = pokemonDecision.variables['pokemon_name'];
 
   // Re-route user to the page that reflects the flag decision

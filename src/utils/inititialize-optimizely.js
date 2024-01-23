@@ -6,7 +6,10 @@ export function initializeOptimizely(datafile) {
 
   const instance = optimizelyClient.createInstance({
     datafile: datafile,
+    eventBatchSize: 10,
+    eventFlushInterval: 1000,
   })
 
   return instance;
 }
+  
