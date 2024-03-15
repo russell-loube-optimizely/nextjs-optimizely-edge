@@ -1,21 +1,23 @@
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse, NextRequest } from "next/server";
 
-import { fetchDatafileFromCDN } from './utils/fetch-optimizely-datafile';
-import { updateEdgeConfig } from './utils/update-edge-config';
-import { getDatafileFromEdge } from './utils/get-datafile-at-edge'
-import { initializeOptimizely } from './utils/inititialize-optimizely'
- 
-export const config = { matcher: '/' };
+import { fetchDatafileFromCDN } from "./utils/fetch-optimizely-datafile";
+import { updateEdgeConfig } from "./utils/update-edge-config";
+import { getDatafileFromEdge } from "./utils/get-datafile-at-edge";
+import { initializeOptimizely } from "./utils/inititialize-optimizely";
+import { collectGenerateParams } from "next/dist/build/utils";
 
-const COOKIE_NAME = 'optimizely_visitor_id'
- 
+export const config = { matcher: "/" };
+
+const COOKIE_NAME = "optimizely_visitor_id";
+
 export async function middleware(req: NextRequest, res: NextResponse) {
-
   // Fetch user Id from the cookie if available so a returning user from same browser session always sees the same variation.
-  const userId = req.cookies.get(COOKIE_NAME)?.value || crypto.randomUUID()
-  
+  const userId = req.cookies.get(COOKIE_NAME)?.value || crypto.randomUUID();
+
   const checkAndFetchForDatafile = async () => {
-    const timeStamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+    const timeStamp = new Date().toLocaleString("en-US", {
+      timeZone: "America/Los_Angeles",
+    });
 
     // Make a check for the datafile in edge config.
     // If no datafile exists, fetch the datafile from CDN
@@ -32,7 +34,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
     }
 
     return datafileAtEdge;
-  }
+  };
 
   const datafile = await checkAndFetchForDatafile();
 
@@ -42,23 +44,23 @@ export async function middleware(req: NextRequest, res: NextResponse) {
 
   // Create Optimizely User Context
 
-  const user = instance.createUserContext(userId.toString() );
+  const user = instance.createUserContext(userId.toString());
 
   // Decide variation for the flag.
 
-  const pokemonDecision = user.decide('pokemon');
+  const pokemonDecision = user.decide("pokemon");
+  console.log("pokemonDecision:", pokemonDecision);
 
-  const pokemon: any = pokemonDecision.variables['pokemon_name'];
+  const pokemon: any = pokemonDecision.variables["pokemon_name"];
 
   // Re-route user to the page that reflects the flag decision
 
   const response = NextResponse.rewrite(new URL(`/${pokemon}`, req.url));
 
-  if (!req.cookies.has(COOKIE_NAME)){
+  if (!req.cookies.has(COOKIE_NAME)) {
     response.cookies.set(COOKIE_NAME, userId);
-    response.cookies.set('pokemon', pokemon);
+    response.cookies.set("pokemon", pokemon);
   }
 
-  return response; 
+  return response;
 }
-
